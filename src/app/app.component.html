@@ -1,0 +1,84 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to CCAvenue Client
+  </h1>
+
+  
+  
+  <form *ngIf="encRequest == ''" #infoForm="ngForm" (ngSubmit)="sendInfo(infoForm)">
+		<table width="40%" height="100" border='1' align="center">
+			<caption>
+				<font size="4" color="blue"><b>Integration Kit</b></font>
+			</caption>
+		</table>
+		<table width="40%" height="100" border='1' align="center">
+			<tr>
+				<td>Parameter Name:</td>
+				<td>Parameter Value:</td>
+			</tr>
+			<tr>
+				<td colspan="2">Compulsory information</td>
+			</tr>
+			<tr>
+				<td>Merchant Id</td>
+				<td><input type="text" name="merchant_id" id="merchant_id" [(ngModel)]="merchant_id" ngModel/> </td>
+			</tr>
+			<tr>
+				<td>Order Id</td>
+				<td><input type="text" name="order_id" value="" ngModel/></td>
+			</tr>
+			<tr>
+				<td>Currency</td>
+				<td><input type="text" name="currency" value="INR" [(ngModel)]="currency" ngModel/></td>
+			</tr>
+			<tr>
+				<td>Amount</td>
+				<td><input type="text" name="amount" value="1.00" [(ngModel)]="amount" ngModel/></td>
+			</tr>
+			<tr>
+				<td>Redirect URL</td>
+        <td><input type="text" name="redirect_url" [(ngModel)] = "redirect_url" ngModel/>
+				</td>
+			</tr>
+			<tr>
+				<td>Cancel URL</td>
+				<td><input type="text" name="cancel_url" [(ngModel)]="cancel_url"  ngModel/>
+				</td>
+			</tr>
+			<tr>
+				<td>Language</td>
+				<td><input type="text" name="language" id="language" [(ngModel)]="language" ngModel/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><INPUT TYPE="submit" value="Checkout"></td>
+			</tr>
+		</table>
+	</form>
+
+
+</div>
+	
+
+<div class="container">
+	<div class="row">
+		<button (click)="pay()">Proceed to Pay</button>
+	</div>
+</div>
+
+<!-- <app-pay></app-pay> -->
+
+<div>
+  <form #form ngNoForm
+    id="nonseamless" 
+    method="post" 
+    name="redirect" 
+    action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
+      <input type="hidden" id="encRequest" name="encRequest" value="{{encRequest}}">
+			<input type="hidden" name="access_code" id="access_code" value="{{accessCode}}">
+  </form>
+
+</div>
+
+
