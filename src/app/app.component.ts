@@ -30,8 +30,8 @@ export class AppComponent {
     private http: HttpClient) { }
 
   ngOnInit() {
-    this.merchant_id = 'XXXXX';
-    this.accessCode = 'XXXXXXXXXXXXXX';
+    this.merchant_id = 'XXX';
+    this.accessCode = 'XXX';
     this.encRequest = '';
   }
 
@@ -49,5 +49,9 @@ export class AppComponent {
       console.log(error);
     });
   }
+
+  // fb(){
+  //   window.location.href = "http://localhost:3000/auth/facebook";
+  // }
 
 }
